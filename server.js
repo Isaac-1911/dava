@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const Transaksi = require('./models/Transaksi'); // pastikan ini path-nya bener
 const Produk = require('./models/Produk');
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 app.use(cors());
@@ -13,6 +14,9 @@ app.use(bodyParser.json());
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
+app.listen(PORT, () => {
+    console.log(`✅ Server berjalan di http://localhost:${PORT}`);
+});
 
 app.get('/produk', async (req, res) => {
     try {
