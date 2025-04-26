@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f8f8;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .card h1 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-top: 20px;
+        }
+
+        .form-group input {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .btn-bayar {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #1e2f51;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-bayar:hover {
+            background-color: #2c3e70;
+        }
+
+
+    </style>
+   
+</head>
+<body>
+
+    <div class="card">
+        <h1 id="produk-nama">Memuat...</h1>
+        <p id="produk-spesifikasi" style="color: #666; font-size: 14px;"></p>
+        <p id="produk-harga">Rp -</p>
+
+        <div class="form-group">
+            <input type="text" placeholder="Nama Lengkap" id="nama">
+            <input type="email" placeholder="Email" id="email">
+        </div>
+
+        <button class="btn-bayar" onclick="handleCheckout()">Bayar Sekarang</button>
+        <p id="status-msg" style="color: green; margin-top: 15px;"></p>
+    </div>
+
+    <script>
+        
+        const params = new URLSearchParams(window.location.search);
+        const produk = params.get('produk');
+        const harga = params.get('harga');
+
+        document.getElementById("produk-nama").innerText = produk || 'Produk Tidak Dikenali';
+        document.getElementById("produk-harga").innerText = harga ? "Rp " + parseInt(harga).toLocaleString('id-ID') : '-';
+        document.getElementById("produk-spesifikasi").innerText = data.spesifikasi;
+        document.getElementById("produk-gambar").src = data.gambar;
+        
+        function handleCheckout() {
+            const nama = document.getElementById("nama").value;
+            const email = document.getElementById("email").value;
+
+            if (!nama || !email) {
+                alert("Lengkapi nama dan email dulu ya!");
+                return;
+            }
+                fetch('http://localhost:3000/buat-transaksi', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                nama,
+                email,
+                produk,
+                harga: parseInt(harga)
+            })
+        })
+
+        .then(res => res.json())
+        .then(data => {
+    console.log("📦 Respons dari backend:", data);
+    if (!data.snapToken) {
+        alert("❌ Gagal mendapatkan snapToken dari server.");
+        return;
+    }
+    window.snap.pay(data.snapToken);
+})
+
+    .catch(err => {
+        console.error(err);
+        alert("Gagal melakukan pembayaran.");
+    });
+}
+
+
+    </script>
+     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-GTkdeC0iyEB7KCbH"></script>
+
+
+</body>
+</html>

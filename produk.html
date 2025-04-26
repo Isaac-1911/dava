@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Daftar Produk</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f0f0;
+      padding: 30px;
+    }
+    .produk-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .produk-card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+    }
+    .produk-card img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    .produk-card h3 {
+      margin: 10px 0 5px;
+    }
+    .produk-card p {
+      font-size: 14px;
+      color: #555;
+    }
+    .btn-rent {
+      margin-top: 10px;
+      padding: 8px 20px;
+      background-color: #1e2f51;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .btn-rent:hover {
+      background-color: #2c3e70;
+    }
+  </style>
+</head>
+<body>
+  <h1>Daftar Produk</h1>
+  <div class="produk-grid" id="produk-list"></div>
+
+  <script>
+    fetch('http://localhost:3000/produk')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('produk-list');
+        data.forEach(produk => {
+          const card = document.createElement('div');
+          card.className = 'produk-card';
+          card.innerHTML = `
+            <img src="${produk.gambar}" alt="${produk.nama}">
+            <h3>${produk.nama}</h3>
+            <p>${produk.spesifikasi}</p>
+            <p><strong>Rp ${parseInt(produk.harga).toLocaleString('id-ID')}</strong></p>
+            <button class="btn-rent" onclick="window.location.href='pembayaran.html?id=${produk._id}'">Rent Now</button>
+          `;
+          container.appendChild(card);
+        });
+      })
+      .catch(err => {
+        console.error('❌ Gagal ambil data produk:', err);
+        alert("Gagal mengambil produk.");
+      });
+  </script>
+</body>
+</html>

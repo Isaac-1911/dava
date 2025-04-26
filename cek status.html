@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Cek Status Pembayaran</title>
+</head>
+<body>
+    <h2>Cek Status Pembayaran</h2>
+    <input type="text" id="order_id" placeholder="Masukkan Order ID">
+    <button onclick="cekStatus()">Cek</button>
+    <p id="hasil-status"></p>
+
+    <script>
+        function cekStatus() {
+            const order_id = document.getElementById("order_id").value;
+
+            fetch('http://localhost:3000/cek-status', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ order_id })
+            })
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("hasil-status").innerText =
+                    "Status: " + data.status;
+            })
+            .catch(err => {
+                console.error(err);
+                alert("Gagal cek status.");
+            });
+        }
+    </script>
+</body>
+</html>
