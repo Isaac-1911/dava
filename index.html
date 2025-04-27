@@ -1,0 +1,436 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nanta Rental  </title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .product-widget ul li a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .product-widget ul li a:hover {
+            text-decoration: underline; /* Kalau kamu pengen efek pas hover */
+            color: #555; /* Opsional, warna pas disentuh */
+        }
+
+
+            @media (max-width: 768px) {
+  /* Contoh penyesuaian */
+        .product-card {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+                @media (hover: none) {
+        .tooltip {
+            display: none; /* atau ubah ke click */
+        }
+        }
+
+                html, body {
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+        }
+
+
+        .sidebar {
+            display: none; /* Bisa diganti jadi toggle */
+        }
+        }
+
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1e2f51;
+            color: #fff;
+            padding: 20px 40px;
+        }        
+        .navbar img {
+            height: 100px; /* Menentukan tinggi logo */
+            max-width: 100%; 
+            transform: scale(2.5); /* Membesarkan logo 1.5x */
+        }   
+        .menu {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .menu li a {
+            color: white;
+            text-decoration: none;
+        }
+        .banner {
+            text-align: left;
+            padding: 50px;
+            background-color: #fff;
+        }
+        .banner img {
+            max-width: 100%;
+            height: auto;
+        }
+        .products {
+            padding: 20px;
+            text-align: center;
+        }
+        .product-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5 kolom per baris */
+            gap: 20px; /* Jarak antar produk */
+            justify-items: center;
+        }
+        .product {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+        }
+        .product img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .rent-button {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .rent-button:hover {
+            background-color: #333;
+        }
+
+        /* Tata letak utama */
+        .container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Pencarian */
+        .search-box {
+            margin-bottom: 20px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        .search-box button {
+            width: 100%;
+            padding: 10px;
+            background: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Kategori Produk */
+        .product-categories h3 {
+            font-size: 16px;
+            font-weight: bold;
+            border-bottom: 2px solid black;
+            padding-bottom: 5px;
+        }
+
+        .product-categories ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .product-categories ul li {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .product-categories ul li ul {
+            margin-left: 15px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .rent-button {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .rent-button:hover {
+            background-color: #333;
+        }
+
+
+        .whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .sewa-iphone {
+            text-align: left;
+            padding-right: 20px; 
+        }
+
+
+    </style>
+</head>
+<body>
+
+  
+    <!-- Navbar -->
+    <nav class="navbar">
+    <img src="images/logo.png" alt="logo">     
+    </nav>
+    
+    <!-- Banner -->
+    <header class="banner">
+        <h2 class="sewa-iphone">Device Rental</h2>
+        <p>Nanta Rent willing for you need a capable device. Various device series are available for your needs. </p>
+        <img src="https://t2.tudocdn.net/592932?w=1920" alt="Banner Sewa iPhone">
+    </header>
+
+    <div class="container">
+        <!-- Sidebar Kiri -->
+        <aside class="sidebar">
+            <div class="search-box">
+                <h3>PRODUCT SEARCH</h3>
+                <input type="text" id="searchInput" placeholder="Search products...">
+                <button onclick="searchProducts()">SEARCH</button>
+            </div>
+    
+            <div class="product-widget">
+                <h3>PRODUCT CATEGORIES</h3>
+                <ul>
+                  <li><a href="#" onclick="filterCategory('iphone')">Iphone</a></li>
+                  <li><a href="#" onclick="filterCategory('kamera')">Kamera</a></li>
+                  <li><a href="#" onclick="filterCategory('macbook')">Macbook</a></li>
+                  <li><a href="#" onclick="filterCategory('all')">Semua Produk</a></li>      
+                </ul>
+              </div>              
+        </aside>
+  
+
+        <!-- Konten Produk -->
+        <section class="product-list">
+                <div class="product product-card kategori-iphone">
+                    
+                    <img src="images/iPhone-11-ProMax-600x771.png" alt="iPhone 11Promax">
+                    <h4 style="color: rgb(76, 71, 71);">iPhone 11 Promax</h4>
+                    <p>Rp 249.000</p> 
+                    <a href="pembayaran.html?produk=iPhone11Promax&harga=249000" class="rent-button">Rent Now</a>
+                </div>
+                <div class="product product-card kategori-iphone">
+                    <img src="images/iPhone-13-Pro-Max-600x771.png" alt="iPhone 13 Promax">
+                    <h4 style="color: rgb(76, 71, 71);">iPhone 13 Promax</h4>
+                    <p>Rp 429.000</p> 
+                    <a href="pembayaran.html?produk=iPhone13Promax&harga=429000" class="rent-button">Rent Now</a>
+                </div>
+                <div class="product product-card kategori-iphone">
+                    <img src="images/iPhone-14-600x771.png" alt="iPhone 14">
+                    <h4 style="color: rgb(76, 71, 71);">iPhone 14</h4>
+                    <p>Rp 379.000</p>
+                    <a href="pembayaran.html?produk=iPhone14&harga=379000" class="rent-button">Rent Now</a>
+                </div>
+                <div class="product product-card kategori-iphone">
+                    <img src="images/iPhone-14-Pro-600x771.png" alt="iPhone 14 Pro">
+                    <h4 style="color: rgb(76, 71, 71);">iPhone 14 Pro</h4>
+                    <p>Rp 499.000</p>
+                    <a href="pembayaran.html?produk=iPhone14Pro&harga=499000" class="rent-button">Rent Now</a>
+                </div>
+                <div class="product product-card kategori-iphone">
+                    <img src="images/iPhone-14-Pro-max-600x771.png" alt="iPhone 14 Promax">
+                    <h4 style="color: rgb(76, 71, 71);">iPhone 14 Promax</h4>
+                    <p>Rp 524.999</p>
+                    <a href="pembayaran.html?produk=iPhone14Promax&harga=524900" class="rent-button">Rent Now</a>
+                </div>
+                <div class="product product-card kategori-iphone">
+                    <img src="images/iPhone-15-Pro-600x771.png" alt="iPhone 15 Pro">
+                    <h4 style="color: rgb(76, 71, 71);">iPhone 15 Pro</h4>
+                    <p>Rp 559.000</p>
+                    <a href="pembayaran.html?produk=iPhone15Pro&harga=559000" class="rent-button">Rent Now</a>
+                </div>
+                <div class="product product-card kategori-iphone">
+                    <img src="images/iPhone-15-ProMax-600x771.png" alt="iPhone 15 Promax">
+                    <h4 style="color: rgb(76, 71, 71);">iPhone 15 Promax</h4>
+                    <p>Rp 574.999</p>
+                    <a href="pembayaran.html?produk=iPhone15Promax&harga=574999" class="rent-button">Rent Now</a>
+                </div>
+                <div class="product product-card kategori-iphone">
+                    <img src="images/iphone_16_plus_ultramarine_01_2.jpg" alt="iPhone 16">
+                    <h4 style="color: rgb(76, 71, 71);">iPhone 16</h4>
+                    <p>Rp 629.999</p>
+                    <a href="pembayaran.html?_id=680bc53fe36eb66eedd3f92d" class="rent-button">Rent Now</a>
+                </div>
+                <div class="product product-card kategori-kamera">
+                    <img src="images/GoPro-Hero-12-600x771.png" alt="GoPro Hero 12">
+                    <h4 style="color: rgb(76, 71, 71);">GoPro Hero 12</h4>
+                    <p>Rp 184.999</p>
+                    <a href="pembayaran.html?produk=GoProHero12&harga=184900" class="rent-button">Rent Now</a>
+                </div>
+                <div class="product product-card kategori-kamera">
+                    <img src="images/Canon-M10-600x771.png" alt="Canon-M10-600x771">
+                    <h4 style="color: rgb(76, 71, 71);">Canon M10</h4>
+                    <p>Rp 119.999</p>
+                    <a href="pembayaran.html?produk=CanonM10&harga=119900" class="rent-button">Rent Now</a>
+                </div>
+                <div class="product product-card kategori-kamera">
+                    <img src="images/Canon-EOS-100D-600x771.png" alt=Canon-EOS-100D-600x771">
+                    <h4 style="color: rgb(76, 71, 71);">Canon EOS 100</h4>
+                    <p>Rp 89.999</p>
+                    <a href="pembayaran.html?produk=CanonEOS100D&harga=89900" class="rent-button">Rent Now</a>
+                </div>
+                <div class="product product-card kategori-kamera">
+                    <img src="images/Fujifilm-X-A5-600x771.png"  alt="Fujifilm-X-A5-600x771">
+                    <h4 style="color: rgb(76, 71, 71);">Fujifilm A5</h4>
+                    <p>Rp 119.999</p>
+                    <a href="pembayaran.html?produk=FujifilmXA5&harga=119900" class="rent-button">Rent Now</a>
+                </div>
+                <div class="product product-card kategori-macbook">
+                    <img src="images/Mackbook-Pro-13-600x771.png"  alt="Mackbook-Pro-13-600x771">
+                    <h4 style="color: rgb(76, 71, 71);">Mackbook Pro 13</h4>
+                    <p>Rp 129.999</p>
+                    <a href="pembayaran.html?produk=MackbookPro13&harga=129900" class="rent-button">Rent Now</a>
+                </div>
+                <div class="product product-card kategori-macbook">
+                    <img src="images/Macbook-Pro-2018-600x771.png"  alt="Macbook-Pro-2018-600x771">
+                    <h4 style="color: rgb(76, 71, 71);">Macbook Pro-2018</h4>
+                    <p>Rp 199.999</p>
+                    <a href="pembayaran.html?produk=MackbookPro2018&harga=199900" class="rent-button">Rent Now</a>
+                </div>
+                <div class="product product-card kategori-macbook">
+                    <img src="images/Macbook-Air-13_-2017-600x771.png"  alt="Macbook-Air-13_-2017-600x771">
+                    <h4 style="color: rgb(76, 71, 71);">Macbook Air 13 2017</h4>
+                    <p>Rp 119.999</p>
+                    <a href="pembayaran.html?produk=MackbookAir13&harga=119900" class="rent-button">Rent Now</a>
+                </div>  
+
+        </section>
+    </div>
+
+      
+        <footer style="background-color: #111; color: #ccc; padding: 40px 20px; font-family: sans-serif;">
+            <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
+                
+              <div style="flex: 1 1 300px; margin-bottom: 20px;">
+                <h3 style="color: white;">NANTA RENTAL</h3>
+                <p>Jasa sewa iphone se-kota banyuwangi dan sekitarnya. Solusi harian tanpa harus membeli produk yang mahal dalam kebutuhan konten atau live streamingmu.</p>
+              </div>
+              
+              <div style="flex: 1 1 300px; margin-bottom: 20px;">
+                <h3 style="color: white;">CONTACT US</h3>
+                <p>Jl. Brawijaya, Kebalenan, Glagah, Banyuwangi</p>
+                <p>+62 899 0305 136</p>
+                <p>Email : ariel00545@gmail.com</p>
+              </div>
+              
+              <div style="flex: 1 1 300px; margin-bottom: 20px;">
+                <h3 style="color: white;">FOLLOW US</h3>
+                <a href="https://www.instagram.com/anan.stuff?igsh=YWV4djd3N3dyc3Bz&utm_source=qr" target="_blank" style="color: #ccc; margin-right: 10px;">Instagram</a>
+                <a href="https://www.tiktok.com/@davaananta2?_t=ZS-8vnhD5pzwa0&_r=1" target="_blank" style="color: #ccc;">TikTok</a>
+                
+              </div>
+            
+            </div>
+          
+            <hr style="border-color: #444; margin: 20px 0;">
+
+            <div style="text-align: left;">
+            <h3>Kunjungi Lokasi Kami</h3>
+            <p>Perumahan Brawijaya, Kebalenan, Banyuwangi</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d420.59427819556646!2d114.35317053521742!3d-8.225767261921149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd15b08b3455c2f%3A0xd575e712f2099e2!2sPuri%20Brawijaya%20Permai%20D9!5e0!3m2!1sid!2sid!4v1745391488676!5m2!1sid!2sid"
+             width="500"
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+            
+            <p style="text-align: center; font-size: 14px;">&copy; 2025 Nanta Rental. All rights reserved.</p>
+          </footer>
+            </div>
+          
+    
+    <!-- Tombol WhatsApp -->
+    <a href="https://wa.me/628990305136" class="whatsapp">Any Question?</a>
+    
+    <script>
+        function searchProducts() {
+          const input = document.getElementById("searchInput").value.toLowerCase();
+          const products = document.getElementsByClassName("product-card");
+        
+          for (let i = 0; i < products.length; i++) {
+            const title = products[i].getElementsByTagName("p")[0].innerText.toLowerCase();
+            if (title.includes(input)) {
+              products[i].style.display = "block";
+            } else {
+              products[i].style.display = "none";
+            }
+          }
+        }
+
+        
+        function filterCategory(kategori) {
+            const allProducts = document.querySelectorAll('.product-card');
+
+            allProducts.forEach(product => {
+            if (kategori === 'all') {
+                product.style.display = 'block';
+            } else {
+                if (product.classList.contains('kategori-' + kategori)) {
+                product.style.display = 'block';
+                } else {
+                product.style.display = 'none';
+                }
+            }
+            });
+        }
+
+        </script>
+    
+</body>
+</html>
