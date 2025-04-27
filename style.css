@@ -1,0 +1,218 @@
+* {
+    text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Open Sans',sans-serif;
+}
+
+.product-widget ul li a {
+    color: black;
+    text-decoration: none;
+}
+
+.product-widget ul li a:hover {
+    text-decoration: underline; /* Kalau kamu pengen efek pas hover */
+    color: #555; /* Opsional, warna pas disentuh */
+}
+
+
+    @media (max-width: 768px) {
+/* Contoh penyesuaian */
+.product-card {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+        @media (hover: none) {
+.tooltip {
+    display: none; /* atau ubah ke click */
+}
+}
+
+        html, body {
+overscroll-behavior: contain;
+-webkit-overflow-scrolling: touch;
+}
+
+
+.sidebar {
+    display: none; /* Bisa diganti jadi toggle */
+}
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1e2f51;
+    color: #fff;
+    padding: 20px 40px;
+}        
+.navbar img {
+    height: 100px; /* Menentukan tinggi logo */
+    max-width: 100%; 
+    transform: scale(2.5); /* Membesarkan logo 1.5x */
+}   
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+.menu li a {
+    color: white;
+    text-decoration: none;
+}
+.banner {
+    text-align: left;
+    padding: 50px;
+    background-color: #fff;
+}
+.banner img {
+    max-width: 100%;
+    height: auto;
+}
+.products {
+    padding: 20px;
+    text-align: center;
+}
+.product-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 kolom per baris */
+    gap: 20px; /* Jarak antar produk */
+    justify-items: center;
+}
+.product {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+}
+.product img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.rent-button {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 10px;
+}
+.rent-button:hover {
+    background-color: #333;
+}
+
+/* Tata letak utama */
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Pencarian */
+.search-box {
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.search-box button {
+    width: 100%;
+    padding: 10px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Kategori Produk */
+.product-categories h3 {
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 2px solid black;
+    padding-bottom: 5px;
+}
+
+.product-categories ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.product-categories ul li {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.product-categories ul li ul {
+    margin-left: 15px;
+    font-size: 13px;
+    color: #666;
+}
+
+.rent-button {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 10px;
+}
+.rent-button:hover {
+    background-color: #333;
+}
+
+
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sewa-iphone {
+    text-align: left;
+    padding-right: 20px; 
+}
